@@ -1,0 +1,14 @@
+<html>
+    <script>
+        function login() {
+            var token = document.getElementById("token").value;
+
+            window.opener.postMessage(token, "*");
+        }
+    </script>
+
+    <input placeholder="Coloque o token de teste aqui" id="token"/>
+
+    <button onclick="javascript:login()">Clique para enviar</button>
+
+</html>
