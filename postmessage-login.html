@@ -3,7 +3,10 @@
         function login() {
             var token = document.getElementById("token").value;
 
-            window.opener.postMessage(token, "*");
+            window.opener.postMessage({ jwt: token }, "*"); 
+            // "*" (wildcard) é inseguro. Usar domínio correspondente ao ambiente.
+            // Staging: window.opener.postMessage({ jwt: token }, "https://uat-bradesco-seguros-vantagens.loyalme.dev");
+            // Prod: window.opener.postMessage({ jwt: token }, "https://bradesco-seguros-vantagens.loyalme.io");
         }
     </script>
 
